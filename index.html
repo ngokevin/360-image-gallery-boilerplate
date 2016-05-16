@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>360 Image Browser</title>
+    <meta name="description" content="360 Image Browser - A-Frame">
+    <script src="lib/aframe.min.js"></script>
+    <script src="lib/aframe-event-set-component.min.js"></script>
+    <script src="lib/aframe-template-component.min.js"></script>
+    <script src="components/update-raycaster.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <img id="city" src="img/city.jpg">
+        <img id="city-thumb" src="img/thumb-city.png">
+        <img id="cubes" src="img/cubes.jpg">
+        <img id="cubes-thumb" src="img/thumb-cubes.png">
+        <img id="sechelt" src="img/sechelt.jpg">
+        <img id="sechelt-thumb" src="img/thumb-sechelt.png">
+
+        <script id="link" type="text/nunjucks">
+          <a-plane class="link" height="1" width="1"
+                   material="shader: flat; src: {{ thumb }}"
+                   event-set="_event: cursor-click; _target: #sky; material.src: {{ src }},
+                              _event: cursor-click; height: 1.4; width: 1.4,
+                              _event: cursor-mouseenter; height: 1.2; width: 1.2,
+                              _event: cursor-mouseleave; height: 1; width: 1"
+                   sound="on: cursor-click; src: audio/click.ogg"
+                   update-raycaster="#cursor">
+          </a-plane>
+        </script>
+      </a-assets>
+
+      <!-- 360-degree image. -->
+      <a-sky id="sky" radius="10" src="#city"></a-sky>
+
+      <!-- Image options. -->
+      <a-entity id="links" position="-1.5 -1 -4">
+        <a-entity template="src: #link" data-src="#cubes"
+                  data-thumb="#cubes-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#city"
+                  data-thumb="#city-thumb" position="1.5 0 0 "></a-entity>
+        <a-entity template="src: #link" data-src="#sechelt"
+                  data-thumb="#sechelt-thumb" position="3 0 0"></a-entity>
+      </a-entity>
+
+      <!-- Camera + cursor. -->
+      <a-entity camera look-controls>
+        <a-cursor id="cursor"
+                  event-set="_event: cursor-mouseenter; color: springgreen,
+                             _event: cursor-mouseleave; color: black"
+                  raycaster="objects: .link">
+          <a-animation begin="cursor-click" easing="ease-in" attribute="scale"
+                       fill="backwards" from="0.1 0.1 0.1" to="1 1 1" dur="150"></a-animation>
+          <a-animation begin="cursor-fusing" easing="ease-in" attribute="scale"
+                       from="1 1 1" to="0.1 0.1 0.1" dur="1500"></a-animation>
+        </a-cursor>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
