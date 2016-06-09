@@ -7,6 +7,7 @@
     <script src="lib/nunjucks-v2.3.0.min.js"></script>
     <script src="lib/aframe.min.js"></script>
     <script src="lib/aframe-event-set-component.min.js"></script>
+    <script src="lib/aframe-layout-component.min.js"></script>
     <script src="lib/aframe-template-component.min.js"></script>
     <script src="components/set-image.js"></script>
     <script src="components/update-raycaster.js"></script>
@@ -39,13 +40,13 @@
       <a-sky id="image-360" radius="10" src="#city"></a-sky>
 
       <!-- Image links. -->
-      <a-entity id="links" position="-1.5 -1 -4">
+      <a-entity id="links" layout="margin: .75" position="-3 -1 -4">
         <a-entity template="src: #link" data-src="#cubes"
                   data-thumb="#cubes-thumb"></a-entity>
         <a-entity template="src: #link" data-src="#city"
-                  data-thumb="#city-thumb" position="1.5 0 0 "></a-entity>
+                  data-thumb="#city-thumb"></a-entity>
         <a-entity template="src: #link" data-src="#sechelt"
-                  data-thumb="#sechelt-thumb" position="3 0 0"></a-entity>
+                  data-thumb="#sechelt-thumb"></a-entity>
       </a-entity>
 
       <!-- Camera + cursor. -->
