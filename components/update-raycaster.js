@@ -3,6 +3,7 @@ AFRAME.registerComponent('update-raycaster', {
   schema: {type: 'selector'},
 
   init: function () {
-    this.data.components.raycaster.refreshObjects();
+    var raycasterEl = this.data;
+    raycasterEl.components.raycaster.refreshObjects();
   }
 });

@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>360 Image Browser</title>
+    <title>360 Image Browser</title>
     <meta name="description" content="360 Image Browser - A-Frame">
     <script src="lib/nunjucks-v2.3.0.min.js"></script>
     <script src="lib/aframe.min.js"></script>
@@ -23,10 +24,10 @@
         <script id="link" type="text/nunjucks">
           <a-plane class="link" height="1" width="1"
                    material="shader: flat; src: {{ thumb }}"
-                   event-set="_event: cursor-mousedown; height: 1.0; width: 1.0,
-                              _event: cursor-mouseup; height: 1.2; width: 1.2,
-                              _event: cursor-mouseenter; height: 1.2; width: 1.2,
-                              _event: cursor-mouseleave; height: 1; width: 1"
+                   event-set="_event: cursor-mousedown; scale: 1 1 1,
+                              _event: cursor-mouseup; scale: 1.2 1.2 1,
+                              _event: cursor-mouseenter; scale: 1.2 1.2 1,
+                              _event: cursor-mouseleave; scale: 1 1 1"
                    set-image="on: cursor-click; target: #image-360; src: {{ src }}"
                    sound="on: cursor-click; src: audio/click.ogg"
                    update-raycaster="#cursor">
@@ -38,7 +39,7 @@
       <a-sky id="image-360" radius="10" src="#city"></a-sky>
 
       <!-- Image links. -->
-      <a-entity id="links" layout="margin: .75" position="-3 -1 -4">
+      <a-entity id="links" layout="layout: line; margin: .75" position="-3 -1 -4">
         <a-entity template="src: #link" data-src="#cubes"
                   data-thumb="#cubes-thumb"></a-entity>
         <a-entity template="src: #link" data-src="#city"
