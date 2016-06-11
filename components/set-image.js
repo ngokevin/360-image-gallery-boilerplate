@@ -9,7 +9,7 @@ AFRAME.registerComponent('set-image', {
     on: {type: 'string'},
     target: {type: 'selector'},
     src: {type: 'string'},
-    dur: {type: 'number', default: 300},
+    dur: {type: 'number', default: 300}
   },
 
   init: function () {
@@ -25,8 +25,6 @@ AFRAME.registerComponent('set-image', {
       setTimeout(function () {
         // Set image.
         data.target.setAttribute('material', 'src', data.src);
-        // Fade back in.
-        data.target.emit('set-image-fade');
       }, data.dur);
     });
   },
