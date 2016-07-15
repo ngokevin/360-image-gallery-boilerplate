@@ -2,9 +2,8 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>360 Image Browser</title>
-    <title>360 Image Browser</title>
-    <meta name="description" content="360 Image Browser - A-Frame">
+    <title>360&deg; Image Browser</title>
+    <meta name="description" content="360&deg; Image Browser - A-Frame">
     <script src="lib/nunjucks-v2.3.0.min.js"></script>
     <script src="lib/aframe.min.js"></script>
     <script src="lib/k-frame.min.js"></script>
@@ -14,6 +13,7 @@
   <body>
     <a-scene>
       <a-assets>
+        <audio id="click-sound" src="audio/click.ogg"></audio>
         <img id="city" src="img/city.jpg">
         <img id="city-thumb" src="img/thumb-city.png">
         <img id="cubes" src="img/cubes.jpg">
@@ -24,12 +24,12 @@
         <script id="link" type="text/nunjucks">
           <a-plane class="link" height="1" width="1"
                    material="shader: flat; src: {{ thumb }}"
-                   event-set="_event: cursor-mousedown; scale: 1 1 1,
-                              _event: cursor-mouseup; scale: 1.2 1.2 1,
-                              _event: cursor-mouseenter; scale: 1.2 1.2 1,
-                              _event: cursor-mouseleave; scale: 1 1 1"
-                   set-image="on: cursor-click; target: #image-360; src: {{ src }}"
-                   sound="on: cursor-click; src: audio/click.ogg"
+                   event-set__1="_event: mousedown; scale: 1 1 1"
+                   event-set__2="_event: mouseup; scale: 1.2 1.2 1"
+                   event-set__3="_event: mouseenter; scale: 1.2 1.2 1"
+                   event-set__4="_event: mouseleave; scale: 1 1 1"
+                   set-image="on: click; target: #image-360; src: {{ src }}"
+                   sound="on: click; src: #click-sound"
                    update-raycaster="#cursor">
           </a-plane>
         </script>
@@ -51,12 +51,12 @@
       <!-- Camera + cursor. -->
       <a-entity camera look-controls>
         <a-cursor id="cursor"
-                  event-set="_event: cursor-mouseenter; color: springgreen,
-                             _event: cursor-mouseleave; color: black"
+                  event-set__1="_event: mouseenter; color: springgreen"
+                  event-set__2="_event: mouseleave; color: black"
                   raycaster="objects: .link">
-          <a-animation begin="cursor-click" easing="ease-in" attribute="scale"
+          <a-animation begin="click" easing="ease-in" attribute="scale"
                        fill="backwards" from="0.1 0.1 0.1" to="1 1 1" dur="150"></a-animation>
-          <a-animation begin="cursor-fusing" easing="ease-in" attribute="scale"
+          <a-animation begin="fusing" easing="ease-in" attribute="scale"
                        from="1 1 1" to="0.1 0.1 0.1" dur="1500"></a-animation>
         </a-cursor>
       </a-entity>
