@@ -34,26 +34,20 @@ AFRAME.registerComponent('set-image', {
    */
   setupFadeAnimation: function () {
     var data = this.data;
+    var targetEl = this.data.target;
 
-    if (data.target.is('set-image-animation-ready')) { return; }
+    // Only set up once.
+    if (targetEl.dataset.setImageFadeSetup) { return; }
+    targetEl.dataset.setImageFadeSetup = true;
 
     // Create animation.
-    var animation = document.createElement('a-animation');
-    var animationData = {
-      attribute: 'material.color',
-      begin: 'set-image-fade',
-      direction: 'alternate',
+    targetEl.setAttribute('animation__fade', {
+      property: 'material.color',
+      startEvents: 'set-image-fade',
+      dir: 'alternate',
       dur: data.dur,
-      repeat: 1,
-      from: 'white',
-      to: 'black'
-    };
-    Object.keys(animationData).forEach(function (attr) {
-      animation.setAttribute(attr, animationData[attr]);
+      from: '#FFF',
+      to: '#000'
     });
-
-    // Append animation.
-    data.target.appendChild(animation);
-    data.target.addState('set-image-animation-ready');
   }
 });
