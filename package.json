@@ -1,5 +1,6 @@
 {
-  "version": "0.0.0",
+  "name": "aframe-360-image-gallery-boilerplate",
+  "version": "0.3.0-beta1",
   "license": "MIT",
   "scripts": {
     "start": "budo --live --verbose --port 3000 --open",
@@ -9,5 +10,13 @@
   "devDependencies": {
     "budo": "^7.0.0",
     "ghpages": "0.0.3"
-  }
+  },
+  "keywords": [
+    "aframe",
+    "aframe-example",
+    "aframe-boilerplate",
+    "aframe-scene",
+    "vr",
+    "webvr"
+  ]
 }
