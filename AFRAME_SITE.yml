@@ -21,10 +21,10 @@ components:
     file: components/update-raycaster.js
 assets:
   - title: city.jpg
-    file: https://media.aframe.io/360-image-gallery-boilerplate/img/city.jpg
+    file: https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg
   - title: cubes.jpg
-    file: https://media.aframe.io/360-image-gallery-boilerplate/img/cubes.jpg
+    file: https://cdn.aframe.io/360-image-gallery-boilerplate/img/cubes.jpg
   - title: sechelt.jpg
-    file: https://media.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg
+    file: https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg
   - title: click.ogg
-    file: https://media.aframe.io/360-image-gallery-boilerplate/audio/click.ogg
+    file: https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg
