@@ -4,22 +4,24 @@
     <meta charset="utf-8">
     <title>360&deg; Image Gallery</title>
     <meta name="description" content="360&deg; Image Browser - A-Frame">
-    <script src="lib/nunjucks-v2.3.0.min.js"></script>
-    <script src="lib/aframe.min.js"></script>
-    <script src="lib/k-frame.min.js"></script>
+    <script src="https://rawgit.com/aframevr/aframe/master/dist/aframe.min.js"></script>
+    <script src="https://npmcdn.com/aframe-animation-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-event-set-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-layout-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-template-component@3.0.1"></script>
     <script src="components/set-image.js"></script>
     <script src="components/update-raycaster.js"></script>
   </head>
   <body>
     <a-scene>
       <a-assets>
-        <audio id="click-sound" src="https://media.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
         <img id="city" crossorigin="anonymous" src="https://media.aframe.io/360-image-gallery-boilerplate/img/city.jpg">
         <img id="city-thumb" crossorigin="anonymous" src="https://media.aframe.io/360-image-gallery-boilerplate/img/thumb-city.jpg">
-        <img id="cubes" crossorigin="anonymous" src="https://media.aframe.io/360-image-gallery-boilerplate/img/cubes.jpg">
         <img id="cubes-thumb" crossorigin="anonymous" src="https://media.aframe.io/360-image-gallery-boilerplate/img/thumb-cubes.jpg">
-        <img id="sechelt" crossorigin="anonymous" src="https://media.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
         <img id="sechelt-thumb" crossorigin="anonymous" src="https://media.aframe.io/360-image-gallery-boilerplate/img/thumb-sechelt.jpg">
+        <audio id="click-sound" crossorigin="anonymous" src="https://media.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+        <img id="cubes" crossorigin="anonymous" src="https://media.aframe.io/360-image-gallery-boilerplate/img/cubes.jpg">
+        <img id="sechelt" crossorigin="anonymous" src="https://media.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
 
         <script id="link" type="text/nunjucks">
           <a-plane class="link" height="1" width="1"
@@ -39,7 +41,7 @@
       <a-sky id="image-360" radius="10" src="#city"></a-sky>
 
       <!-- Image links. -->
-      <a-entity id="links" layout="type: line; margin: .75" position="-3 -1 -4">
+      <a-entity id="links" layout="type: line; margin: 1.5" position="0 -1 -4">
         <a-entity template="src: #link" data-src="#cubes"
                   data-thumb="#cubes-thumb"></a-entity>
         <a-entity template="src: #link" data-src="#city"
