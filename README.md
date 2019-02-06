@@ -1,3 +1,5 @@
+> Discontinued, moved to https://glitch.com/~aframe-360-gallery
+
 # 360-image-gallery-boilerplate
 
 > Featured in the *Building an Advanced Scene* guide.
