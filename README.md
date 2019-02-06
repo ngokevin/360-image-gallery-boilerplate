@@ -1,4 +1,4 @@
-> Discontinued, moved to https://glitch.com/~aframe-360-gallery
+> Discontinued, moved to https://glitch.com/~aframe-gallery
 
 # 360-image-gallery-boilerplate
 
